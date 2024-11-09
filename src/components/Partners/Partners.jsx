@@ -52,7 +52,7 @@ const Partners = () => {
         `}
     </style>
     <div className="bg-gray-950 py-10" id="partners">
-      <h2 className="relative mt-8 mb-12 text-2xl font-bold text-center text-green-500 md:text-3xl">
+      <h2 className="relative mt-8 mb-12 text-2xl font-bold font-techno text-center md:text-3xl" style={{ color: 'rgba(166, 253, 153, 1)' }}>
         OUR PARTNERS
       </h2>
       <div id="Achievements" className="p-2 flex justify-center items-center w-full mx-auto">

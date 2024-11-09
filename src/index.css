@@ -4,3 +4,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "TechnoNue";
+  src: url("/public/font/Techno_Nue-Bold.otf") format("opentype");
+}
+
+/* styles.css */
+.bg-responsive {
+  background-image: url("/public/images/Background1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+  .bg-responsive {
+    background-size: cover;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bg-responsive {
+    background-size: contain;
+  }
+}
