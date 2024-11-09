@@ -82,7 +82,7 @@ const NavLink = ({ href, children }) => {
   return (
     <a
       href={href}
-      className="w-full px-4 py-1 font-medium text-gray-400 rounded-full hover:text-white whitespace-nowrap">
+      className="w-full px-4 py-1 font-medium text-gray-400 rounded-full hover:text-green-500 whitespace-nowrap">
       {children}
     </a>
   );
