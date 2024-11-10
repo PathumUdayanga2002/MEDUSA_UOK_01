@@ -1,0 +1,57 @@
+.price-container {
+  background: rgb(3, 48, 4);
+  background: linear-gradient(
+    180deg,
+    rgba(3, 48, 4, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  overflow-x: hidden;
+}
+.third-price-background {
+  opacity: 0.8;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  padding: 20px;
+}
+
+.third-price-background:hover {
+  opacity: 1;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+
+.first-price-background {
+  opacity: 0.8;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  padding: 20px;
+}
+
+.first-price-background:hover {
+  opacity: 1;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+
+.second-price-background {
+  opacity: 0.8;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  padding: 20px;
+}
+
+.second-price-background:hover {
+  opacity: 1;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+
+.price-color {
+  color: #a6fd99;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
