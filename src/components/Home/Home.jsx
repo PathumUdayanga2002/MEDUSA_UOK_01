@@ -1,11 +1,19 @@
 import React from "react";
+
 import Button from "../Buttton/Button";
+
+// import images
+
+import background from "../../assets/images/Background2.jpg";
+import mainlogo from "../../assets/images/MainLogo.jpg";
+import mainImage from "../../assets/images/MainImage1.jpg"
+import medusaimage from "../../assets/images/Medusa Img.svg";
 
 const Home = () => {
   return (
     <div
-      className=" mt-[64px] px-16 h-screen w-screen  bg-cover bg-center bg-no-repeat md:bg-cover bg-green-950"
-      style={{ backgroundImage: "url('/public/images/Background.svg')" }}
+      className=" mt-[64px] px-16 h-screen w-screen  bg-cover bg-center bg-no-repeat md:bg-cover md:bg-center md:bg-no-repeat bg-green-950   "
+      style={{ backgroundImage: `url(${background})` }}
     >
       <div className=" flex flex-col justify-center items-center text-center lg:flex-row xl:flex xl:flex-row lg:flex lg:justify-between xl:justify-between">
         {/* medusa logo with buttons */}
@@ -13,14 +21,17 @@ const Home = () => {
           <div>
             <img
               className="lg:w-[300px] lg:h-[300px] w-[150px] h-[150px]"
-              src="/public/images/Main Logo.svg"
+              src={mainlogo}
             />
           </div>
           <div className=" text-white bg-green-800 text-center py-2 rounded-full px-4 bg-fixed">
             <p>DEFEND | DECODE | DOMINATE</p>
           </div>
           <div className=" text-white justify-center text-center  mt-5">
-            <p>INTER-UNIVERSITY <br />CAPTURE THE FLAG (CTF) 2024</p>
+            <p>
+              INTER-UNIVERSITY <br />
+              CAPTURE THE FLAG (CTF) 2024
+            </p>
           </div>
           <div className=" flex flex-col  ">
             <div className=" mt-5 lg:items-start lg:justify-start lg:text-left">
@@ -46,7 +57,7 @@ const Home = () => {
 
         {/* medusa image */}
         <div>
-          <img src="/public/images/Medusa Img.svg" alt="" />
+          <img src={medusaimage} alt="" />
         </div>
       </div>
     </div>
