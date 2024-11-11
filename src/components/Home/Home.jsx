@@ -16,7 +16,7 @@ const Home = () => {
     >
       <div className=" flex flex-col justify-center items-center text-center lg:flex-row xl:flex xl:flex-row lg:flex lg:justify-between xl:justify-between text-sm mt-[64px]">
         {/* medusa logo with buttons */}
-        <div className="flex flex-col font-techno items-center text-sm md:items-start md:justify-start lg:justify-start lg:items-start lg:mb-16">
+        <div className="flex flex-col font-techno items-center text-sm md:items-start md:justify-start lg:justify-start lg:items-start lg:mb-16 md:mr-10 ">
           <div>
             <motion.img
               className="lg:w-[300px] lg:h-[300px] w-[150px] h-[150px]"
@@ -43,7 +43,7 @@ const Home = () => {
               <p className=" text-lime-300">GET IN TOUCH</p>
               <p className=" text-white">TO UNLEASH YOUR INNER HACKER</p>
             </div>
-            <div className=" flex flex-row gap-5 mt-5">
+            <div className=" flex flex-col md:flex md:flex-row gap-5 mt-5 px-5 md:px-0 ">
               <div>
                 <Button
                   text="REGISTRATION"
@@ -61,7 +61,7 @@ const Home = () => {
         </div>
 
         {/* medusa image */}
-        <div className="flex justify-center items-center w-[250px] h-[250px] mt-5 md:mt-0 md:w-max md:h-max">
+        <div className="flex justify-center items-center w-[250px] h-[250px] mt-10 md:mt-0 md:w-max md:h-max ">
           <motion.img 
           src={medusaimage}
            alt=""
