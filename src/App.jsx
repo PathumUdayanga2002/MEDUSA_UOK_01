@@ -4,6 +4,7 @@ import Partners from "../src/components/Partners/Partners";
 import Home from "./components/Home/Home";
 import Timeline from "./components/Timeline/Timeline";
 import Pricepool from "./components/Pricepool/Pricepool";
+import Footer from '../src/components/Footer/Footer';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
     <Timeline/>
     <Pricepool/>
     <Partners/>
+    <Footer/>
     </>
   )
 
