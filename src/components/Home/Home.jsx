@@ -1,5 +1,5 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 import Button from "../Buttton/Button";
 
 // import images
@@ -11,16 +11,22 @@ import medusaimage from "../../assets/images/Medusa Img.svg";
 const Home = () => {
   return (
     <div
-      className=" mt-[64px] px-16 h-screen w-screen  bg-cover bg-center bg-no-repeat md:bg-cover md:bg-center md:bg-no-repeat bg-green-950   "
+      className="  px-16 h-screen w-screen  bg-cover bg-center bg-no-repeat md:bg-cover md:bg-center md:bg-no-repeat bg-green-950 "
       style={{ backgroundImage: `url(${background})` }}
     >
-      <div className=" flex flex-col justify-center items-center text-center lg:flex-row xl:flex xl:flex-row lg:flex lg:justify-between xl:justify-between">
+      <div className=" flex flex-col justify-center items-center text-center lg:flex-row xl:flex xl:flex-row lg:flex lg:justify-between xl:justify-between text-sm mt-[64px]">
         {/* medusa logo with buttons */}
-        <div className="flex flex-col font-techno sm:items-center md:items-start md:justify-start lg:justify-start lg:items-start lg:mb-16">
+        <div className="flex flex-col font-techno items-center text-sm md:items-start md:justify-start lg:justify-start lg:items-start lg:mb-16">
           <div>
-            <img
+            <motion.img
               className="lg:w-[300px] lg:h-[300px] w-[150px] h-[150px]"
               src={mainlogo}
+              animate={{y:[0,-10,0]}}
+              transition={{
+                duration:8,
+                repeat: Infinity,
+                repeatType:"loop",
+                ease:"easeInOut",}}
             />
           </div>
           <div className=" text-white bg-green-800 text-center py-2 rounded-full px-4 bg-fixed">
@@ -55,8 +61,18 @@ const Home = () => {
         </div>
 
         {/* medusa image */}
-        <div>
-          <img src={medusaimage} alt="" />
+        <div className="flex justify-center items-center w-[250px] h-[250px] mt-5 md:mt-0 md:w-max md:h-max">
+          <motion.img 
+          src={medusaimage}
+           alt=""
+           animate={{y:[0,-20,0],x:[0,20,0],scale:[1,1.2,1],opacity:[1,0,1]}}
+           transition={{
+            duration:8,
+            repeat: Infinity,
+            repeatType:"loop",
+            ease:"easeInOut",
+           }}
+           />
         </div>
       </div>
     </div>
