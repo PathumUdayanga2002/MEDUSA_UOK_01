@@ -1,8 +1,8 @@
 import React from "react";
-import "./pricepool.css";
 import img1 from "../../assets/0.png";
 import img2 from "../../assets/1.png";
 import img3 from "../../assets/2.png";
+import "./pricepool.css";
 
 export default function Pricepool() {
   return (

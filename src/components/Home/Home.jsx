@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import Button from "../Buttton/Button";
 
 // import images
-
 import background from "../../assets/images/Background.svg";
 import mainlogo from "../../assets/images/Main Logo.svg";
 import medusaimage from "../../assets/images/Medusa Img.svg";
@@ -43,19 +42,32 @@ const Home = () => {
               <p className=" text-lime-300">GET IN TOUCH</p>
               <p className=" text-white">TO UNLEASH YOUR INNER HACKER</p>
             </div>
-            <div className=" flex flex-col md:flex md:flex-row gap-5 mt-5 px-5 md:px-0 ">
-              <div>
+            <div className=" flex flex-col md:flex md:flex-row gap-5 mt-5 px-5 md:px-0 "
+            
+            >
+              <motion.div
+                   whileHover={{ scale: 1.2 }}
+                   onHoverStart={e => {}}
+                   onHoverEnd={e => {}}
+              >
                 <Button
                   text="REGISTRATION"
                   className=" bg-red-600 text-lg text-white font-poppins px-4 py-2 rounded-non cursor-pointer"
+             
                 />
-              </div>
-              <div>
+              </motion.div>
+              <motion.div
+                   whileHover={{ scale: 1.2 }}
+                   onHoverStart={e => {}}
+                   onHoverEnd={e => {}}
+              >
                 <Button
                   text="DELEGATE_BOOKLET"
                   className=" bg-green-800 text-lg text-white  px-4 py-2 rounded-non cursor-pointer bg-fixed"
+             
                 />
-              </div>
+                
+              </motion.div>
             </div>
           </div>
         </div>
