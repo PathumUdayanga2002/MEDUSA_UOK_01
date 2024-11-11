@@ -4,9 +4,8 @@ import Button from "../Buttton/Button";
 
 // import images
 
-import background from "../../assets/images/Background2.jpg";
-import mainlogo from "../../assets/images/MainLogo.jpg";
-import mainImage from "../../assets/images/MainImage1.jpg"
+import background from "../../assets/images/Background.svg";
+import mainlogo from "../../assets/images/Main Logo.svg";
 import medusaimage from "../../assets/images/Medusa Img.svg";
 
 const Home = () => {
