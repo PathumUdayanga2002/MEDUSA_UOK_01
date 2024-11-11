@@ -61,7 +61,7 @@ const Home = () => {
         </div>
 
         {/* medusa image */}
-        <div className="flex justify-center items-center w-[250px] h-[250px] mt-10 md:mt-0 md:w-max md:h-max ">
+        <div className="flex justify-center items-center w-[300px] h-[300px] mt-14 md:mt-0 md:w-max md:h-max ">
           <motion.img 
           src={medusaimage}
            alt=""
