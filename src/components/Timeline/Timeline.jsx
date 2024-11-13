@@ -10,7 +10,7 @@ const timelineData = [
 
 const Timeline = () => {
   return (
-    <div style={{ backgroundColor: '#002200' }} className="h-[1000px] flex flex-col items-center py-10">
+    <div style={{ backgroundColor: '#002200' }} className="h-[1000px] flex flex-col items-center py-10"id="timeline"> 
       <h1 className="text-[#A6FD99] text-2xl mb-8">TIMELINE</h1><br/><br/>
 
       <div className="relative w-full max-w-5xl flex flex-col items-center">

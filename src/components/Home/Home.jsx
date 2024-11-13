@@ -4,7 +4,7 @@ import Button from "../Buttton/Button";
 const Home = () => {
   return (
     <div
-      className=" mt-[64px] px-16 h-screen w-screen  bg-cover bg-center bg-no-repeat md:bg-cover bg-green-950"
+      className=" mt-[64px] px-16 h-screen w-screen  bg-cover bg-center bg-no-repeat md:bg-cover bg-green-950" id="home"
       style={{ backgroundImage: "url('/public/images/Background.svg')" }}
     >
       <div className=" flex flex-col justify-center items-center text-center lg:flex-row xl:flex xl:flex-row lg:flex lg:justify-between xl:justify-between">

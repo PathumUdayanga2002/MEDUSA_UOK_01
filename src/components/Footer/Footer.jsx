@@ -4,7 +4,7 @@ import LOGO from '../../assets/Logo.png'
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-black via-green-900 to-black text-white py-6">
+    <footer className="bg-gradient-to-r from-black via-green-900 to-black text-white font-techno py-6" id="contact">
       <div className="flex items-center justify-center ">
   <img
     src={LOGO}
@@ -20,14 +20,14 @@ const Footer = () => {
           <a href="#" className="text-white text-xl sm:text-2xl"><FaYoutube className="text-green-400 w-6 h-6 sm:w-8 sm:h-8" /></a>
         </div>
         <div className="flex flex-wrap justify-center space-x-4 sm:space-x-6 lg:space-x-8">
-          <a href="#" className="text-white text-sm sm:text-base">HOME</a>
-          <a href="#" className="text-white text-sm sm:text-base">ABOUT</a>
-          <a href="#" className="text-white text-sm sm:text-base">TIME LINE</a>
-          <a href="#" className="text-white text-sm sm:text-base">PRICEPOOL</a>
-          <a href="#" className="text-white text-sm sm:text-base">PARTNERS</a>
-          <a href="#" className="text-white text-sm sm:text-base">CONTACT US</a>
+          <a href="#home" className="text-white text-sm sm:text-base">HOME</a>
+          <a href="#about" className="text-white text-sm sm:text-base">ABOUT</a>
+          <a href="#timeline" className="text-white text-sm sm:text-base">TIMELINE</a>
+          <a href="#pricepool" className="text-white text-sm sm:text-base">PRICEPOOL</a>
+          <a href="#partners" className="text-white text-sm sm:text-base">PARTNERS</a>
+          <a href="#contact" className="text-white text-sm sm:text-base">CONTACT US</a>
         </div>
-        <hr className="w-full border-t-4 border-gray-600 my-4 sm:my-6 lg:my-8" />
+        <hr className="w-full border-t-4 border-gray-550 my-4 sm:my-6 lg:my-8" />
         <div className="text-center">
           <p className="text-sm sm:text-base">© Copyright 2024 | All Rights Reserved</p>
         </div>

@@ -6,7 +6,7 @@ import img3 from "../../assets/2.png";
 
 export default function Pricepool() {
   return (
-    <div className="price-container py-5">
+    <div className="price-container py-5" id="pricepool">
       <div className="text-center text-2xl font-semibold price-color py-5">
         <p>PRIZE POOL</p>
       </div>
