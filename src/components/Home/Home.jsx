@@ -10,13 +10,8 @@ import medusaimage from "../../assets/images/Medusa Img.svg";
 const Home = () => {
   return (
     <div
-<<<<<<< HEAD
-      className=" mt-[64px] px-16 h-screen w-screen  bg-cover bg-center bg-no-repeat md:bg-cover bg-green-950" id="home"
-      style={{ backgroundImage: "url('/public/images/Background.svg')" }}
-=======
       className="  px-16 h-screen w-screen  bg-cover bg-center bg-no-repeat md:bg-cover md:bg-center md:bg-no-repeat bg-green-950 "
       style={{ backgroundImage: `url(${background})` }}
->>>>>>> cd714b20abb0d13c63daa9af6780f25e1398d678
     >
       <div className=" flex flex-col justify-center items-center text-center lg:flex-row xl:flex xl:flex-row lg:flex lg:justify-between xl:justify-between text-sm mt-[64px]">
         {/* medusa logo with buttons */}
