@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import LOGO from '../../assets/Logo.png'
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -21,8 +22,8 @@ const Navbar = () => {
             </div>
 
           {/* Nav Links - Desktop */}
-             <div className="hidden sm:flex sm:items-center sm:ml-6 sm:space-x-2 lg:text-lg font-semibold">
-              <NavLink href="#home">HOME</NavLink>
+             <div className="hidden sm:flex sm:items-center sm:ml-6 sm:space-x-2 lg:text-lg font-semibold text-gray-400">
+              <Link  to={"/"}>HOME</Link>
               <NavLink href="#about">ABOUT</NavLink>
               <NavLink href="#timeline">TIMELINE</NavLink>
               <NavLink href="#pricepool">PRICEPOOL</NavLink>
