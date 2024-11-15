@@ -63,8 +63,8 @@ const Navbar = () => {
             </div>
 
             {/* Navigation Links */}
-            <div className="flex flex-col items-center justify-center text-center space-y-16 text-2xl font-medium" onClick={toggleMenu}>
-            <NavLink href="#home">Home</NavLink>
+            <div className="flex flex-col items-center justify-center text-center space-y-16 text-2xl font-medium  text-gray-400" onClick={toggleMenu}>
+            <Link  to={"/"}>HOME</Link>
             <NavLink href="#about">ABOUT</NavLink>
             <NavLink href="#timeline">TIMELINE</NavLink>
             <NavLink href="#pricepool">PRICEPOOL</NavLink>
