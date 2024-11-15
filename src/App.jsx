@@ -5,12 +5,14 @@ import Home from "./components/Home/Home";
 import Timeline from "./components/Timeline/Timeline";
 import Pricepool from "./components/Pricepool/Pricepool";
 import Footer from '../src/components/Footer/Footer';
+import Registeration from "./components/Registeration/Registeration";
 
 const App = () => {
   return (
     <>
     <Navbar/> 
     <Home/>
+    <Registeration/>
     <Timeline/>
     <Pricepool/>
     <Partners/>
