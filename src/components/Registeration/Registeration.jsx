@@ -4,6 +4,8 @@ const MemberDetailsForm = () => {
   const [members, setMembers] = useState([
     { name: '', university: '', yearOfStudy: '', mobileNumber: '' },
   ]);
+  const [loading, setLoading] = useState(false); // Loading state for the submit button
+  const [status, setStatus] = useState(''); // State for form submission status
 
   const handleChange = (index, e) => {
     const { name, value } = e.target;
@@ -23,11 +25,45 @@ const MemberDetailsForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('All Members:', members);
-    // Add form submission logic here
+    setLoading(true); // Set loading state to true
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxJ_yE_Lokh5J2Y-SOQQD3l7fgQdcebKop2qTmwNjhct5hDI3ltBffmUmLLZBLm8HIQRA/exec';
+    const form = new FormData();
+
+    members.forEach((member, index) => {
+      form.append(`name_${index + 1}`, member.name);
+      form.append(`university_${index + 1}`, member.university);
+      form.append(`yearOfStudy_${index + 1}`, member.yearOfStudy);
+      form.append(`mobileNumber_${index + 1}`, member.mobileNumber);
+    });
+
+    try {
+      const response = await fetch(scriptURL, {
+        method: 'POST',
+        body: form
+      });
+      const result = await response.json();
+
+      if (result.result === 'success') {
+        setStatus('Success! Your form has been submitted.');
+        console.log("submitted");
+        setFormData({
+          name: '',
+          university: '',
+          yearOfStudy: '',
+          mobileNumber: ''
+        });
+      } else {
+        setStatus('Error0! ' + result.error);
+      }
+    } catch (error) {
+      
+    }finally {
+      setLoading(false); // Set loading state back to false
+    }
   };
+
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-r font-techno from-black via-green-900 to-black">
@@ -44,14 +80,14 @@ const MemberDetailsForm = () => {
             {/* Name Field */}
             <div className="mb-4">
               <label
-                htmlFor={`name-${index}`}
+                htmlFor={`name_${index}`}
                 className="block text-sm font-medium text-white"
               >
                 Name
               </label>
               <input
                 type="text"
-                id={`name-${index}`}
+                id={`name_${index}`}
                 name="name"
                 value={member.name}
                 onChange={(e) => handleChange(index, e)}
@@ -63,14 +99,14 @@ const MemberDetailsForm = () => {
             {/* University Field */}
             <div className="mb-4">
               <label
-                htmlFor={`university-${index}`}
+                htmlFor={`university_${index}`}
                 className="block text-sm font-medium text-white"
               >
                 University
               </label>
               <input
                 type="text"
-                id={`university-${index}`}
+                id={`university_${index}`}
                 name="university"
                 value={member.university}
                 onChange={(e) => handleChange(index, e)}
@@ -89,7 +125,7 @@ const MemberDetailsForm = () => {
                   <div key={year} className="flex items-center">
                     <input
                       type="radio"
-                      id={`year-${index}-${year}`}
+                      id={`year_${index}_${year}`}
                       name="yearOfStudy"
                       value={year}
                       checked={member.yearOfStudy === year}
@@ -97,7 +133,7 @@ const MemberDetailsForm = () => {
                       className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
                     />
                     <label
-                      htmlFor={`year-${index}-${year}`}
+                      htmlFor={`year_${index}_${year}`}
                       className="ml-2 block text-sm text-gray-700"
                     >
                       {year}
@@ -110,14 +146,14 @@ const MemberDetailsForm = () => {
             {/* Mobile Number */}
             <div className="mb-4">
               <label
-                htmlFor={`mobileNumber-${index}`}
+                htmlFor={`mobileNumber_${index}`}
                 className="block text-sm font-medium text-gray-700"
               >
                 Mobile Number
               </label>
               <input
                 type="text"
-                id={`mobileNumber-${index}`}
+                id={`mobileNumber_${index}`}
                 name="mobileNumber"
                 value={member.mobileNumber}
                 onChange={(e) => handleChange(index, e)}
@@ -133,11 +169,7 @@ const MemberDetailsForm = () => {
           <button
             type="button"
             onClick={handleAddMember}
-            className={`w-full py-2 px-4 rounded-md ${
-              members.length < 5
-                ? 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-            }`}
+            className={`w-full py-2 px-4 rounded-md ${members.length < 5 ? 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2' : 'bg-gray-300 text-gray-500 cursor-not-allowed'}`}
             disabled={members.length >= 5}
           >
             {members.length < 5 ? 'Add Another Member' : 'Maximum Members Reached'}
@@ -148,11 +180,21 @@ const MemberDetailsForm = () => {
         <div>
           <button
             type="submit"
-            className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+            className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+            disabled={loading}
           >
-            Submit
+            {loading ? 'Submitting...' : 'Submit'}
           </button>
         </div>
+
+        {/* Status Message */}
+        {status && (
+          <div className="mt-4 text-center">
+            <p className={`text-lg ${status.startsWith('Error') ? 'text-red-500' : 'text-green-500'}`}>
+              {status}
+            </p>
+          </div>
+        )}
       </form>
     </div>
   );
