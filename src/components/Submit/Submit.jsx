@@ -1,10 +1,20 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import hacker from "../../assets/images/hacker.png";
 
 const Submit = () => {
   const binaryText = "1010100101010110010101010110101010100101";
 
   const [code, setCode] = React.useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    if (code === "1234") {
+      navigate("/register");
+    } else {
+      alert("Incorrect Secret Key.Try agin!");
+    }
+  };
 
   return (
     <div className="relative w-full h-screen bg-black overflow-hidden ">
@@ -58,15 +68,18 @@ const Submit = () => {
               </div>
               <div className="md:flex  md:justify-between flex flex-col space-y-4">
                 <div className="  ">
-                  <button className="w-[300px] bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+                  <button
+                    onClick={handleSubmit}
+                    className="w-[300px] bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
+                  >
                     Submit
                   </button>
                 </div>
-                <div>
+                {/* <div>
                   <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-[300px]">
                     Task
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

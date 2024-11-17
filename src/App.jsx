@@ -8,7 +8,12 @@ import Registeration from "./components/Registeration/Registeration";
 import Submit from "./components/Submit/Submit";
 import Timeline from "./components/Timeline/Timeline";
 
-import { Route, BrowserRouter as Router, Routes, useLocation } from "react-router-dom";
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 
 const App = () => {
   // Custom Layout Handler
@@ -23,6 +28,13 @@ const App = () => {
           {children}
         </>
       );
+    }else if (location.pathname === "/register") {  
+      return (
+        <>
+          <Navbar />
+          {children}
+        </>
+      );
     }
 
     // Default layout
@@ -30,7 +42,6 @@ const App = () => {
       <>
         <Navbar />
         <Home />
-        <Registeration />
         <Timeline />
         <Pricepool />
         <Partners />
@@ -45,6 +56,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/hacker" element={<Submit />} />
+          <Route path="/register" element={<Registeration />} />
         </Routes>
       </Layout>
     </Router>
