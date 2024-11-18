@@ -9,7 +9,7 @@ const Submit = () => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    if (code === "1234") {
+    if (code === "Medusa{Th1$_1$_th3_$cr3tC0d3}") {
       navigate("/register");
     } else {
       alert("Incorrect Secret Key.Try agin!");
