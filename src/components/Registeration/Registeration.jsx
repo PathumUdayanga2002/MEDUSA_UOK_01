@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const MemberDetailsForm = () => {
   const [members, setMembers] = useState([
-    { name: '', university: '', yearOfStudy: '', mobileNumber: '' },
+    { name: "", university: "", yearOfStudy: "", mobileNumber: "" },
   ]);
-  const [teamName, setTeamName] = useState(''); // State for team name
+  const [teamName, setTeamName] = useState(""); // State for team name
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState("");
 
   const handleChange = (index, e) => {
     const { name, value } = e.target;
@@ -25,7 +25,7 @@ const MemberDetailsForm = () => {
     if (members.length < 5) {
       setMembers([
         ...members,
-        { name: '', university: '', yearOfStudy: '', mobileNumber: '' },
+        { name: "", university: "", yearOfStudy: "", mobileNumber: "" },
       ]);
     }
   };
@@ -34,10 +34,10 @@ const MemberDetailsForm = () => {
     e.preventDefault();
     setLoading(true);
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxJ_yE_Lokh5J2Y-SOQQD3l7fgQdcebKop2qTmwNjhct5hDI3ltBffmUmLLZBLm8HIQRA/exec';
+    const scriptURL = import.meta.env.VITE_GOOGLE_URL;
     const form = new FormData();
 
-    form.append('teamName', teamName);
+    form.append("teamName", teamName);
 
     members.forEach((member, index) => {
       form.append(`name_${index + 1}`, member.name);
@@ -48,20 +48,22 @@ const MemberDetailsForm = () => {
 
     try {
       const response = await fetch(scriptURL, {
-        method: 'POST',
+        method: "POST",
         body: form,
       });
       const result = await response.json();
 
-      if (result.result === 'success') {
-        setStatus('Success! Your form has been submitted.');
-        setTeamName('');
-        setMembers([{ name: '', university: '', yearOfStudy: '', mobileNumber: '' }]);
+      if (result.result === "success") {
+        setStatus("Success! Your form has been submitted.");
+        setTeamName("");
+        setMembers([
+          { name: "", university: "", yearOfStudy: "", mobileNumber: "" },
+        ]);
       } else {
-        setStatus('Error: ' + result.error);
+        setStatus("Error: " + result.error);
       }
     } catch (error) {
-      setStatus('Error: Could not submit the form.');
+      setStatus("Error: Could not submit the form.");
     } finally {
       setLoading(false);
     }
@@ -73,11 +75,16 @@ const MemberDetailsForm = () => {
         className="isolate aspect-video w-96 rounded-xl bg-white/20 shadow-lg ring-1 ring-black/5 p-6 mt-16"
         onSubmit={handleSubmit}
       >
-        <h2 className="text-2xl font-semibold text-center mb-4">Member Details</h2>
+        <h2 className="text-2xl font-semibold text-center mb-4">
+          Member Details
+        </h2>
 
         {/* Team Name */}
         <div className="mb-6">
-          <label htmlFor="teamName" className="block text-sm font-medium text-white">
+          <label
+            htmlFor="teamName"
+            className="block text-sm font-medium text-white"
+          >
             Team Name <span className="text-red-500">*</span>
           </label>
           <input
@@ -96,7 +103,10 @@ const MemberDetailsForm = () => {
             <h3 className="text-lg font-semibold mb-2">Member {index + 1}</h3>
 
             <div className="mb-4">
-              <label htmlFor={`name_${index}`} className="block text-sm font-medium text-white">
+              <label
+                htmlFor={`name_${index}`}
+                className="block text-sm font-medium text-white"
+              >
                 Name <span className="text-red-500">*</span>
               </label>
               <input
@@ -112,7 +122,10 @@ const MemberDetailsForm = () => {
             </div>
 
             <div className="mb-4">
-              <label htmlFor={`university_${index}`} className="block text-sm font-medium text-white">
+              <label
+                htmlFor={`university_${index}`}
+                className="block text-sm font-medium text-white"
+              >
                 University <span className="text-red-500">*</span>
               </label>
               <input
@@ -132,31 +145,38 @@ const MemberDetailsForm = () => {
                 Year of Study <span className="text-red-500">*</span>
               </label>
               <div className="mt-2 space-y-2">
-                {['1st Year', '2nd Year', '3rd Year', '4th Year'].map((year) => (
-                  <div key={year} className="flex items-center">
-                    <input
-                      type="radio"
-                      id={`year_${index}_${year}`}
-                      name="yearOfStudy"
-                      value={year}
-                      checked={member.yearOfStudy === year}
-                      onChange={(e) => handleChange(index, e)}
-                      required
-                      className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
-                    />
-                    <label
-                      htmlFor={`year_${index}_${year}`}
-                      className="ml-2 block text-sm text-gray-700"
-                    >
-                      {year}
-                    </label>
-                  </div>
-                ))}
+                {["1st Year", "2nd Year", "3rd Year", "4th Year"].map(
+                  (year) => (
+                    <div key={year} className="flex items-center">
+                      <input
+                        type="radio"
+                        id={`year_${index}_${year}`}
+                        name="yearOfStudy"
+                        value={year}
+                        checked={member.yearOfStudy === year}
+                        onChange={(e) => handleChange(index, e)}
+                        required
+                        className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                      />
+                      <label
+                        htmlFor={`year_${index}_${year}`}
+                        className="ml-2 block text-sm text-gray-700"
+                      >
+                        {year}
+                      </label>
+                    </div>
+                  )
+                )}
               </div>
             </div>
 
             <div className="mb-4">
               <label htmlFor={`mobileNumber_${index}`} className="block text-sm font-medium text-white">
+=======
+              <label
+                htmlFor={`mobileNumber_${index}`}
+                className="block text-sm font-medium text-gray-700"
+              >
                 Mobile Number <span className="text-red-500">*</span>
               </label>
               <input
@@ -177,10 +197,16 @@ const MemberDetailsForm = () => {
           <button
             type="button"
             onClick={handleAddMember}
-            className={`w-full py-2 px-4 rounded-md ${members.length < 5 ? 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2' : 'bg-gray-300 text-gray-500 cursor-not-allowed'}`}
+            className={`w-full py-2 px-4 rounded-md ${
+              members.length < 5
+                ? "bg-blue-600 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                : "bg-gray-300 text-gray-500 cursor-not-allowed"
+            }`}
             disabled={members.length >= 5}
           >
-            {members.length < 5 ? 'Add Another Member' : 'Maximum Members Reached'}
+            {members.length < 5
+              ? "Add Another Member"
+              : "Maximum Members Reached"}
           </button>
         </div>
 
@@ -190,13 +216,17 @@ const MemberDetailsForm = () => {
             className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
             disabled={loading}
           >
-            {loading ? 'Submitting...' : 'Submit'}
+            {loading ? "Submitting..." : "Submit"}
           </button>
         </div>
 
         {status && (
           <div className="mt-4 text-center">
-            <p className={`text-lg ${status.startsWith('Error') ? 'text-red-500' : 'text-green-500'}`}>
+            <p
+              className={`text-lg ${
+                status.startsWith("Error") ? "text-red-500" : "text-green-500"
+              }`}
+            >
               {status}
             </p>
           </div>
