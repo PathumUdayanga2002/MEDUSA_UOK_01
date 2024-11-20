@@ -171,11 +171,10 @@ const MemberDetailsForm = () => {
             </div>
 
             <div className="mb-4">
-              <label htmlFor={`mobileNumber_${index}`} className="block text-sm font-medium text-white">
-=======
+              <label htmlFor={`mobileNumber_${index}`} className="block text-sm font-medium text-white"></label>
               <label
                 htmlFor={`mobileNumber_${index}`}
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-white"
               >
                 Mobile Number <span className="text-red-500">*</span>
               </label>
