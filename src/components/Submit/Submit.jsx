@@ -7,17 +7,27 @@ const Submit = () => {
 
   const [code, setCode] = React.useState("");
   const navigate = useNavigate();
-
+  const [isError, setIsError] = React.useState(false);
+  // const secretKeyBase64 = import.meta.env.VITE_SECRET_KEY;
+  const secretKey = import.meta.env.VITE_SECRET_KEY;
+  // const secretKey = atob(secretKeyBase64);
+  // const secretKey = process.env.REACT_APP_SECRET_KEY;
+  // "Medusa{Th1$_1$_th3_$cr3tC0d3}"
   const handleSubmit = () => {
-    if (code === "Medusa{Th1$_1$_th3_$cr3tC0d3}") {
+    if (code === secretKey) {
       navigate("/register");
     } else {
-      alert("Incorrect Secret Key.Try agin!");
+      // alert("Incorrect Secret Key.Try agin!");
+      // console.log(secretKey);
+      setIsError(true);
     }
+  };
+  const closeErrorPopup = () => {
+    setIsError(false);
   };
 
   return (
-    <div className="relative w-full h-screen bg-black overflow-hidden ">
+    <div className="relative w-full h-full bg-black overflow-hidden ">
       {[...Array(20)].map((_, i) => (
         <div
           key={i}
@@ -34,23 +44,23 @@ const Submit = () => {
       ))}
 
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col   h-full text-center text-white font-techno py-20 px-20 mt-[30px]">
-        <div className=" md:flex md:flex-row flex flex-col space-y-4 md:justify-between mb-4">
+      <div className="relative z-10 flex flex-col   h-screen text-center text-white font-techno py-20 px-20 mt-[30px]">
+        <div className=" md:flex md:flex-row flex flex-col space-y-4 md:justify-between mb-4 md:gap-10">
           {/* image */}
-          <div className=" ">
+          <div className=" items-center justify-center text-center ">
             <img
-              className=" object-cover md:w-[600px] md:h-[520px] md:items-center md:justify-center md:text-center md:mt-[-40px] w-[300px] h-[250px] shadow-xl shadow-green-400 rounded-xl mt-[-20px] "
+              className="  object-cover md:w-[670px] md:h-[520px] md:items-center md:justify-center md:text-center md:mt-[-40px] w-[300px] h-[250px] shadow-xl shadow-green-400 rounded-xl mt-[-20px] "
               src={hacker}
               alt="hacker image"
             />
           </div>
           {/* content */}
           <div>
-            <div>
+            <div className="flex flex-col items-center justify-center text-center">
               <h1 className="md:text-6xl text-4xl font-bold mb-4 shadow-xl ">
                 Welcome to the Hacker Zone
               </h1>
-              <p className="md:text-xl text-lg max-w-2xl mb-5">
+              <p className="md:text-xl text-lg  mb-5">
                 If you want to register MEDUSA CTF 2024, you must find the
                 Secret Key In Below task...!!
               </p>
@@ -66,7 +76,7 @@ const Submit = () => {
                   }}
                 />
               </div>
-              <div className="md:flex  md:justify-between flex flex-col space-y-4">
+              <div className="md:flex  flex flex-col space-y-4">
                 <div className="  ">
                   <button
                     onClick={handleSubmit}
@@ -75,17 +85,27 @@ const Submit = () => {
                     Submit
                   </button>
                 </div>
-                {/* <div>
-                  <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-[300px]">
-                    Task
-                  </button>
-                </div> */}
               </div>
             </div>
           </div>
           {/* end content */}
         </div>
       </div>
+      {/* Error Popup */}
+      {isError && (
+        <div className=" inset-0 fixed z-50 flex justify-center items-center bg-black bg-opacity-70">
+          <div className="bg-white text-black p-6 rounded-lg shadow-lg text-center">
+            <h2 className="text-xl font-bold mb-4">Invalid Secret Key</h2>
+            <p>Please try again!</p>
+            <button
+              onClick={closeErrorPopup}
+              className="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
 
     //     const text = "1010100101010110010101010110101010100101";
