@@ -96,7 +96,7 @@ const Submit = () => {
         <div className=" inset-0 fixed z-50 flex justify-center items-center bg-black bg-opacity-70">
           <div className="bg-white text-black p-6 rounded-lg shadow-lg text-center">
             <h2 className="text-xl font-bold mb-4">Invalid Secret Key</h2>
-            <p>Please try again!</p>
+            <p>Please try again! <br /> Hint: Use Hacker Image</p>
             <button
               onClick={closeErrorPopup}
               className="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
