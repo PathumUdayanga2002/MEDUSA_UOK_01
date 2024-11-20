@@ -16,9 +16,10 @@ const Submit = () => {
   const handleSubmit = () => {
     if (code === secretKey) {
       navigate("/register");
+      console.log(secretKey);
     } else {
       // alert("Incorrect Secret Key.Try agin!");
-      // console.log(secretKey);
+      console.log(secretKey);
       setIsError(true);
     }
   };
