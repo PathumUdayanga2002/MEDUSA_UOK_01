@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      screens: {
+        'iphone-se': '375px', // Custom breakpoint for iPhone SE
+      },
       fontFamily: {
         techno: ["TechnoNue"],
       },

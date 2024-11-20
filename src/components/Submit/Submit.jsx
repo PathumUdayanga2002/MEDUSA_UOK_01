@@ -58,10 +58,10 @@ const Submit = () => {
           {/* content */}
           <div>
             <div className="flex flex-col items-center justify-center text-center">
-              <h1 className="md:text-6xl text-4xl font-bold mb-4 shadow-xl ">
+              <h1 className=" iphone-se:text-2xl md:text-6xl text-4xl font-bold mb-4 shadow-xl ">
                 Welcome to the Hacker Zone
               </h1>
-              <p className="md:text-xl text-lg  mb-5">
+              <p className="md:text-2xl text-lg iphone-se:text-base  mb-5">
                 If you want to register MEDUSA CTF 2024, you must find the
                 Secret Key In Below task...!!
               </p>
