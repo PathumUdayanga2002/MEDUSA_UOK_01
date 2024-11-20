@@ -70,7 +70,7 @@ const MemberDetailsForm = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-r font-techno from-black via-green-900 to-black">
       <form
-        className="isolate aspect-video w-96 rounded-xl bg-white/20 shadow-lg ring-1 ring-black/5 p-6"
+        className="isolate aspect-video w-96 rounded-xl bg-white/20 shadow-lg ring-1 ring-black/5 p-6 mt-16"
         onSubmit={handleSubmit}
       >
         <h2 className="text-2xl font-semibold text-center mb-4">Member Details</h2>
@@ -156,7 +156,7 @@ const MemberDetailsForm = () => {
             </div>
 
             <div className="mb-4">
-              <label htmlFor={`mobileNumber_${index}`} className="block text-sm font-medium text-gray-700">
+              <label htmlFor={`mobileNumber_${index}`} className="block text-sm font-medium text-white">
                 Mobile Number <span className="text-red-500">*</span>
               </label>
               <input

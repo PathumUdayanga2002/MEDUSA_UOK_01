@@ -7,6 +7,8 @@ import Pricepool from "./components/Pricepool/Pricepool";
 import Registeration from "./components/Registeration/Registeration";
 import Submit from "./components/Submit/Submit";
 import Timeline from "./components/Timeline/Timeline";
+import ContactUs from "./components/ContactUs/ContactUs";
+
 
 import {
   Route,
@@ -14,6 +16,7 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
+
 
 const App = () => {
   // Custom Layout Handler
@@ -45,6 +48,7 @@ const App = () => {
         <Timeline />
         <Pricepool />
         <Partners />
+        <ContactUs />
         <Footer />
       </>
     );
