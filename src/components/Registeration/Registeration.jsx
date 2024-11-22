@@ -44,6 +44,7 @@ const MemberDetailsForm = () => {
     setLoading(true);
 
     const scriptURL = import.meta.env.VITE_GOOGLE_URL;
+  
     const form = new FormData();
 
     form.append("teamName", teamName);
