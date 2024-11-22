@@ -7,7 +7,7 @@ import iCET from '../../assets/iCET.png';
 
 const cards = [
   { id: 1, image: iCET, title: 'TITLE PARTNER', link: '#dummyLink' },
-  { id: 2, image: AWS, title: 'KNOWLEDGE PARTNER', link: 'https://www.linkedin.com/company/aws-cloud-club-of-university-of-kelaniya/' },
+  { id: 2, image: AWS, title: 'KNOWLEDGE PARTNER', link: '#dummyLink' },
   { id: 3, image:  nadula, title: 'PHOTOGRAPHY PARTNER', link: '#dummyLink' },
   { id: 4, image: hashx, title: 'OFFICIAL CTF PLATFORM PROVIDER', link: '#dummyLink' },
   // { id: 5, image: 'https://via.placeholder.com/150', title: 'BRONZE PARTNERS', link: '#dummyLink' },
