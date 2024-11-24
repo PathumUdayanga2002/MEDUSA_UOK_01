@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 const MemberDetailsForm = () => {
   const [members, setMembers] = useState([
-    { name: "", university: "", yearOfStudy: "", mobileNumber: "", paymentSlip: null },
+    { name: "", university: "", yearOfStudy: "", mobileNumber: "" },
   ]);
-  const [teamName, setTeamName] = useState("");
+  const [teamName, setTeamName] = useState(""); // State for team name
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
 
@@ -17,24 +17,15 @@ const MemberDetailsForm = () => {
     );
   };
 
-  const handleFileChange = (index, e) => {
-    const file = e.target.files[0];
-    setMembers((prevMembers) =>
-      prevMembers.map((member, i) =>
-        i === index ? { ...member, paymentSlip: file } : member
-      )
-    );
-  };
-
   const handleTeamNameChange = (e) => {
     setTeamName(e.target.value);
   };
 
   const handleAddMember = () => {
-    if (members.length < 4) {
+    if (members.length < 5) {
       setMembers([
         ...members,
-        { name: "", university: "", yearOfStudy: "", mobileNumber: "", paymentSlip: null },
+        { name: "", university: "", yearOfStudy: "", mobileNumber: "" },
       ]);
     }
   };
@@ -44,7 +35,6 @@ const MemberDetailsForm = () => {
     setLoading(true);
 
     const scriptURL = import.meta.env.VITE_GOOGLE_URL;
-  
     const form = new FormData();
 
     form.append("teamName", teamName);
@@ -54,9 +44,6 @@ const MemberDetailsForm = () => {
       form.append(`university_${index + 1}`, member.university);
       form.append(`yearOfStudy_${index + 1}`, member.yearOfStudy);
       form.append(`mobileNumber_${index + 1}`, member.mobileNumber);
-      if (index === 0 && member.paymentSlip) {
-        form.append("paymentSlip", member.paymentSlip);
-      }
     });
 
     try {
@@ -70,7 +57,7 @@ const MemberDetailsForm = () => {
         setStatus("Success! Your form has been submitted.");
         setTeamName("");
         setMembers([
-          { name: "", university: "", yearOfStudy: "", mobileNumber: "", paymentSlip: null },
+          { name: "", university: "", yearOfStudy: "", mobileNumber: "" },
         ]);
       } else {
         setStatus("Error: " + result.error);
@@ -85,7 +72,7 @@ const MemberDetailsForm = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-r font-techno from-black via-green-900 to-black">
       <form
-        className="isolate aspect-video w-96 rounded-xl bg-white/20 shadow-lg ring-1 ring-black/5 p-6 mt-16"
+        className="isolate aspect-video w-96 rounded-xl bg-white/20 shadow-lg ring-1 ring-black/5 p-6"
         onSubmit={handleSubmit}
       >
         <h2 className="text-2xl font-semibold text-center mb-4">
@@ -186,7 +173,7 @@ const MemberDetailsForm = () => {
             <div className="mb-4">
               <label
                 htmlFor={`mobileNumber_${index}`}
-                className="block text-sm font-medium text-white"
+                className="block text-sm font-medium text-gray-700"
               >
                 Mobile Number <span className="text-red-500">*</span>
               </label>
@@ -201,26 +188,6 @@ const MemberDetailsForm = () => {
                 placeholder="Enter mobile number"
               />
             </div>
-
-            {index === 0 && (
-              <div className="mb-4">
-                <label
-                  htmlFor={`paymentSlip_${index}`}
-                  className="block text-sm font-medium text-white"
-                >
-                  Upload Your Payment Registration Slip{" "}
-                  <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="file"
-                  id={`paymentSlip_${index}`}
-                  name="paymentSlip"
-                  onChange={(e) => handleFileChange(index, e)}
-                  required
-                  className="mt-1 block w-full text-sm text-gray-500 border border-gray-300 rounded-md shadow-sm"
-                />
-              </div>
-            )}
           </div>
         ))}
 
@@ -229,13 +196,13 @@ const MemberDetailsForm = () => {
             type="button"
             onClick={handleAddMember}
             className={`w-full py-2 px-4 rounded-md ${
-              members.length < 4
+              members.length < 5
                 ? "bg-blue-600 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 : "bg-gray-300 text-gray-500 cursor-not-allowed"
             }`}
-            disabled={members.length >= 4}
+            disabled={members.length >= 5}
           >
-            {members.length < 4
+            {members.length < 5
               ? "Add Another Member"
               : "Maximum Members Reached"}
           </button>
