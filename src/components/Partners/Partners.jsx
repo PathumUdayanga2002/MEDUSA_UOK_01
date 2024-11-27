@@ -4,13 +4,14 @@ import nadula from '../../assets/nadula.png';
 import hashx from '../../assets/hashx.png';
 import AWS from '../../assets/AWS.png';
 import iCET from '../../assets/iCET.png';
+import codechef from '../../assets/codechef.png';
 
 const cards = [
-  { id: 1, image: iCET, title: 'TITLE PARTNER', link: '#dummyLink' },
-  { id: 2, image: AWS, title: 'KNOWLEDGE PARTNER', link: '#dummyLink' },
-  { id: 3, image:  nadula, title: 'PHOTOGRAPHY PARTNER', link: '#dummyLink' },
-  { id: 4, image: hashx, title: 'OFFICIAL CTF PLATFORM PROVIDER', link: '#dummyLink' },
-  // { id: 5, image: 'https://via.placeholder.com/150', title: 'BRONZE PARTNERS', link: '#dummyLink' },
+  { id: 1, image: iCET, title: 'TITLE PARTNER', link: 'https://www.facebook.com/iCETSriLanka' },
+  { id: 2, image: AWS, title: 'KNOWLEDGE PARTNER', link: 'https://www.linkedin.com/company/aws-cloud-club-of-university-of-kelaniya/' },
+  { id: 3, image:  nadula, title: 'PHOTOGRAPHY PARTNER', link: 'https://www.facebook.com/share/1CzJ31K29C/?mibextid=LQQJ4d' },
+  { id: 4, image: hashx, title: 'OFFICIAL CTF PLATFORM PROVIDER', link: 'https://hashx.live' },
+  { id: 5, image: codechef,  title: 'DIGITAL MEDIA PARTNERS', link: 'https://whatsapp.com/channel/0029Vadn4YZHrDZjzJPOxT0T' },
 ];
 
 const Partners = () => {
