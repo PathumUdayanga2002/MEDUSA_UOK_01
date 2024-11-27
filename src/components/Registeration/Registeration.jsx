@@ -4,7 +4,8 @@ const MemberDetailsForm = () => {
   const [members, setMembers] = useState([
     { name: "", university: "", yearOfStudy: "", mobileNumber: "" },
   ]);
-  const [teamName, setTeamName] = useState(""); // State for team name
+  const [teamName, setTeamName] = useState("");
+  const [paymentLink, setPaymentLink] = useState("");
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
 
@@ -21,8 +22,12 @@ const MemberDetailsForm = () => {
     setTeamName(e.target.value);
   };
 
+  const handlePaymentLinkChange = (e) => {
+    setPaymentLink(e.target.value);
+  };
+
   const handleAddMember = () => {
-    if (members.length < 5) {
+    if (members.length < 4) {
       setMembers([
         ...members,
         { name: "", university: "", yearOfStudy: "", mobileNumber: "" },
@@ -38,6 +43,7 @@ const MemberDetailsForm = () => {
     const form = new FormData();
 
     form.append("teamName", teamName);
+    form.append("paymentLink", paymentLink);
 
     members.forEach((member, index) => {
       form.append(`name_${index + 1}`, member.name);
@@ -56,6 +62,7 @@ const MemberDetailsForm = () => {
       if (result.result === "success") {
         setStatus("Success! Your form has been submitted.");
         setTeamName("");
+        setPaymentLink("");
         setMembers([
           { name: "", university: "", yearOfStudy: "", mobileNumber: "" },
         ]);
@@ -72,10 +79,10 @@ const MemberDetailsForm = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-r font-techno from-black via-green-900 to-black">
       <form
-        className="isolate aspect-video w-96 rounded-xl bg-white/20 shadow-lg ring-1 ring-black/5 p-6"
+        className="isolate aspect-video w-96 rounded-xl bg-white/20 shadow-lg ring-1 ring-black/5 p-6 mt-20"
         onSubmit={handleSubmit}
       >
-        <h2 className="text-2xl font-semibold text-center mb-4">
+        <h2 className="text-2xl font-semibold text-center mb-4 ">
           Member Details
         </h2>
 
@@ -98,10 +105,29 @@ const MemberDetailsForm = () => {
           />
         </div>
 
+        {/* Payment Link */}
+        <div className="mb-6">
+          <label
+            htmlFor="paymentLink"
+            className="block text-sm font-medium text-white"
+          >
+            Payment Detail Link
+          </label>
+          <input
+            type="text"
+            id="paymentLink"
+            value={paymentLink}
+            onChange={handlePaymentLinkChange}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Enter payment detail link"
+          />
+        </div>
+
         {members.map((member, index) => (
           <div key={index} className="mb-6 border-b pb-4 last:border-none">
             <h3 className="text-lg font-semibold mb-2">Member {index + 1}</h3>
 
+            {/* Member Name */}
             <div className="mb-4">
               <label
                 htmlFor={`name_${index}`}
@@ -121,6 +147,7 @@ const MemberDetailsForm = () => {
               />
             </div>
 
+            {/* University */}
             <div className="mb-4">
               <label
                 htmlFor={`university_${index}`}
@@ -140,6 +167,7 @@ const MemberDetailsForm = () => {
               />
             </div>
 
+            {/* Year of Study */}
             <div className="mb-4">
               <label className="block text-sm font-medium text-white">
                 Year of Study <span className="text-red-500">*</span>
@@ -170,6 +198,7 @@ const MemberDetailsForm = () => {
               </div>
             </div>
 
+            {/* Mobile Number */}
             <div className="mb-4">
               <label
                 htmlFor={`mobileNumber_${index}`}
@@ -191,23 +220,23 @@ const MemberDetailsForm = () => {
           </div>
         ))}
 
+        {/* Add Member Button */}
         <div className="mb-4">
           <button
             type="button"
             onClick={handleAddMember}
             className={`w-full py-2 px-4 rounded-md ${
-              members.length < 5
+              members.length < 4
                 ? "bg-blue-600 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 : "bg-gray-300 text-gray-500 cursor-not-allowed"
             }`}
-            disabled={members.length >= 5}
+            disabled={members.length >= 4}
           >
-            {members.length < 5
-              ? "Add Another Member"
-              : "Maximum Members Reached"}
+            {members.length < 4 ? "Add Another Member" : "Maximum Members Reached"}
           </button>
         </div>
 
+        {/* Submit Button */}
         <div>
           <button
             type="submit"
