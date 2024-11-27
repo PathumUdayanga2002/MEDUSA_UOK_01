@@ -39,7 +39,8 @@ const MemberDetailsForm = () => {
     e.preventDefault();
     setLoading(true);
 
-    const scriptURL = import.meta.env.VITE_GOOGLE_URL;
+   // const scriptURL = import.meta.env.VITE_GOOGLE_URL;
+    const scriptURL ='https://script.google.com/macros/s/AKfycbysje2j8AYBlLcQLHiK6xJpSxo7etFIlfytVEg1jHuNzDMk35PW0etOGmQnOVCYYflAcg/exec';
     const form = new FormData();
 
     form.append("teamName", teamName);
@@ -60,7 +61,8 @@ const MemberDetailsForm = () => {
       const result = await response.json();
 
       if (result.result === "success") {
-        setStatus("Success! Your form has been submitted.");
+       
+        setStatus("success");
         setTeamName("");
         setPaymentLink("");
         setMembers([
@@ -242,6 +244,7 @@ const MemberDetailsForm = () => {
             type="submit"
             className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
             disabled={loading}
+            
           >
             {loading ? "Submitting..." : "Submit"}
           </button>
@@ -254,9 +257,24 @@ const MemberDetailsForm = () => {
                 status.startsWith("Error") ? "text-red-500" : "text-green-500"
               }`}
             >
-              {status}
+              
             </p>
-          </div>
+            {status.startsWith("success") && (
+              <div>
+                <p className="text-green-500 text-lg"> Success! Your form has been submitted.</p>
+                Join our WhatsApp group:{" "}
+                <a
+                  href="https://chat.whatsapp.com/DqpJHFMaxdCG0VdtyKmiv1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "#25D366", fontWeight: "bold", }}
+                  className="hover:bg-red-500"
+                >
+                  Click here
+                </a>
+              </div>
+            )}
+                  </div>
         )}
       </form>
     </div>

@@ -14,7 +14,7 @@ const Submit = () => {
   // const secretKey = process.env.REACT_APP_SECRET_KEY;
   // "Medusa{Th1$_1$_th3_$cr3tC0d3}"
   const handleSubmit = () => {
-    if (code === secretKey) {
+    if (code === "Medusa{Th1$_1$_th3_$cr3tC0d3}") {
       navigate("/register");
       console.log(secretKey);
     } else {
