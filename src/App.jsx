@@ -16,6 +16,7 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
+import WhatIsMedusa from "./components/WhatIsMedusa/WhatIsMedusa";
 
 
 const App = () => {
@@ -46,6 +47,7 @@ const App = () => {
       <>
         <Navbar />
         <Home />
+        <WhatIsMedusa/>
         <Timeline />
         <Pricepool />
         <Partners />
